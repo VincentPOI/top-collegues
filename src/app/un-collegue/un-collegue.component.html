@@ -1,0 +1,12 @@
+<div class="card" style="width: 18rem;">
+  <div class="crop">
+      <img class="card-img-top thumbnail" src="{{collegue.urlImage}}" alt="Card image cap">
+
+  </div>
+  <div class="card-body text-center">
+    <h4 class="card-title"><strong>{{collegue.nom}}</strong></h4>
+    <p class="card-text lead"><strong>{{collegue.score}}</strong></p>
+    <button type="button" (click)="jaime()" class="btn btn-outline-primary">J'aime</button>
+    <button type="button" (click)="jedeteste()" class="btn btn-outline-danger">Je déteste</button>
+  </div>
+</div>
