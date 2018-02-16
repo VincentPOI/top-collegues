@@ -43,7 +43,7 @@
   </div>
 
   <div class="card-deck mt-3">
-    <app-un-collegue *ngFor="let col of collegues" [collegue]="col" style="flex: 1 0 0%;"></app-un-collegue>
+    <app-un-collegue class=" col-lg-3 col-md-4 col-sm-6 col-12 mb-3 p-0" *ngFor="let col of collegues" [collegue]="col" (suppr)=supprimer($event) (majScore)="trierCollegues()"></app-un-collegue>
   </div>
 
 
