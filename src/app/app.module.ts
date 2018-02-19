@@ -16,6 +16,8 @@ import { LigneCollegueComponent } from './ligne-collegue/ligne-collegue.componen
 import { ChoixAffichageComponent } from './choix-affichage/choix-affichage.component';
 import { SlideCollegueComponent } from './slide-collegue/slide-collegue.component';
 import { VueDetailComponent } from './vue-detail/vue-detail.component';
+import { ScorePipe } from './shared/pipe/score.pipe';
+import { PseudoPipe } from './shared/pipe/pseudo.pipe';
 
 
 const appRoutes: Routes = [
@@ -39,7 +41,9 @@ const appRoutes: Routes = [
     LigneCollegueComponent,
     ChoixAffichageComponent,
     SlideCollegueComponent,
-    VueDetailComponent
+    VueDetailComponent,
+    ScorePipe,
+    PseudoPipe
   ],
   imports: [
     BrowserModule,

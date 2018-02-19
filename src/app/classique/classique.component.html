@@ -4,8 +4,33 @@
 </div>
 
 <div class="row">
-    <app-choix-affichage class="col-12 mb-3 mt-3"></app-choix-affichage>
+  <app-choix-affichage class="col-12 mb-3 mt-3"></app-choix-affichage>
 </div>
+
+<div class="row">
+  <div class="col-6">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon3">Limite</span>
+      </div>
+      <input #limite (input)="nouvelleLimite(limite)" type="number" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon3">Filtre par pseudo</span>
+      </div>
+      <input #pseudoInput (input)="nouvelleRecherche(pseudoInput)" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+    </div>
+  </div>
+</div>
+
+
+
 <div class="card-deck mt-3">
-  <app-un-collegue *ngFor="let col of collegues" [collegue]="col" (suppr)=supprimer($event) (majScore)="trierCollegues()" class=" col-lg-3 col-md-4 col-sm-6 col-12 mb-3 p-0"></app-un-collegue>
+  <app-un-collegue *ngFor="let col of collegues | pseudo:beginPseudo | slice:0:nbMax" [collegue]="col" (suppr)=supprimer($event) (majScore)="trierCollegues()"
+    class=" col-lg-3 col-md-4 col-sm-6 col-12 mb-3 p-0"></app-un-collegue>
 </div>

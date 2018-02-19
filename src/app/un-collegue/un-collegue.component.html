@@ -14,10 +14,10 @@
 
   <div class="card-body text-center">
     <h4 class="card-title">
-      <strong>{{collegue.pseudo}}</strong>
+      <strong>{{collegue.pseudo | uppercase}}</strong>
     </h4>
     <p class="card-text lead">
-      <strong>{{collegue.score}}</strong>
+      <strong [innerHTML]="collegue.score | score"></strong>
     </p>
     <button type="button" (click)="jaime()" class="btn btn-outline-primary">J'aime</button>
     <button type="button" (click)="jedeteste()" class="btn btn-outline-danger">Je déteste</button>

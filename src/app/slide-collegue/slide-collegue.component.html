@@ -6,7 +6,7 @@
 <div class="carousel-caption">
   <h1 class="custom-title1">{{collegue.score}}</h1>
   <h2 class="custom-title2">  <a class="text-white" routerLink="/detail/{{collegue.pseudo}}">
-    {{collegue.pseudo}}</a>
+    {{collegue.pseudo | uppercase }}</a>
     <button type="button" (click)="supprimer()" class="btn btn-outline-warning" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>

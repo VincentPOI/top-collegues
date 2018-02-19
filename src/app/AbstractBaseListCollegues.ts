@@ -5,6 +5,8 @@ import CollegueService from './shared/service/collegue.service'
 export default abstract class AbstractBaseListCollegues {
   collegues: Collegue[] = [];
   cs: CollegueService;
+  nbMax : number;
+  beginPseudo:string;
   constructor(cs: CollegueService) {
     this.cs = cs;
   }
@@ -15,6 +17,17 @@ export default abstract class AbstractBaseListCollegues {
       this.trierCollegues();
     })
 
+  }
+
+  nouvelleLimite(limite: HTMLInputElement){
+    this.nbMax = limite.valueAsNumber;
+    if(!Number.isInteger(this.nbMax)){
+      this.nbMax = undefined;
+    }
+  }
+
+  nouvelleRecherche(pseudoInput: HTMLInputElement){
+    this.beginPseudo = pseudoInput.value
   }
 
   add(collegue: Collegue) {
