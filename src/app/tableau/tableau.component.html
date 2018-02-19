@@ -1,0 +1,21 @@
+<div class="row bg-light">
+  <app-banniere class=col-12></app-banniere>
+  <app-formulaire-ajout class=col-12 (ajout)=add($event)></app-formulaire-ajout>
+</div>
+<div class="row">
+    <app-choix-affichage class="col-12 mb-3 mt-3"></app-choix-affichage>
+</div>
+<table id="tableauCollegue" class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Pseudo</th>
+      <th scope="col">Score</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr app-ligne-collegue *ngFor="let col of collegues" [collegue]="col" (suppr)=supprimer($event)
+    (majScore)="trierCollegues()"></tr>
+  </tbody>
+</table>

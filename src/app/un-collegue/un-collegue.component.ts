@@ -1,46 +1,25 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import Collegue from '../shared/domain/collegue';
+import { Component, OnInit } from '@angular/core';
 import CollegueService from '../shared/service/collegue.service';
+import AbstractBaseCollegue from '../AbstractBaseCollegue';
 
 @Component({
   selector: 'app-un-collegue',
   templateUrl: './un-collegue.component.html',
   styleUrls: ['./un-collegue.component.css']
 })
-export class UnCollegueComponent implements OnInit {
-  @Input() collegue: Collegue;
-  @Output() majScore: EventEmitter<void> = new EventEmitter<void>()
-  @Output() suppr: EventEmitter<Collegue> = new EventEmitter<Collegue>()
-  hauteurImage :number = 200;
+export class UnCollegueComponent extends AbstractBaseCollegue implements OnInit {
+  hauteurImage: number;
 
-  constructor(private cs: CollegueService) { }
+  constructor(public cs: CollegueService) {
+    super(cs);
+   }
 
 
   ngOnInit() {
-
   }
-
-  supprimer(){
-    this.suppr.emit(this.collegue);
-  }
-
-  jaime() {
-    this.cs.aimerUnCollegue(this.collegue).then(collegue => { this.collegue.score = collegue.score; this.majScore.emit(); });
-
-
-  }
-  jedeteste() {
-    this.cs.detesterUnCollegue(this.collegue).then(collegue => { this.collegue.score = collegue.score; this.majScore.emit(); });
-  }
-
 
   tailler(img: HTMLImageElement){
     this.hauteurImage = img.width;
-  }
-
-  sourcer(img: HTMLImageElement){
-    //TODO à changer pour mettre une ressource local, pas trop important pour l'instant
-    img.src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png";
   }
 
 }

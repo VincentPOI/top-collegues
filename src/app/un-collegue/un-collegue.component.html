@@ -1,14 +1,16 @@
 <div class="card">
   <div class="d-flex flex-row-reverse">
-    <button type="button" (click)="supprimer()" class="close position-absolute " aria-label="Close">
+    <button type="button" (click)="supprimer()" class="btn btn-sm btn-outline-warning position-absolute mr-1 mt-1" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
 
-  <div class="d-flex align-items-center" [style.height.px]="hauteurImage*3/4" style="overflow: hidden;">
-    <img #image (window:resize)="tailler(image)" (load)="tailler(image)" (error)="sourcer(image)" class="card-img-top" src="{{collegue.urlImage}}"
-      alt="Card image cap">
-  </div>
+  <a routerLink="/detail/{{collegue.pseudo}}">
+    <div class="d-flex align-items-center" [style.height.px]="hauteurImage*3/4" style="overflow: hidden;">
+      <img #image (window:resize)="tailler(image)" (load)="tailler(image)" (error)="sourcer(image)" class="card-img-top" src="{{collegue.urlImage}}"
+        alt="Card image cap">
+    </div>
+  </a>
 
   <div class="card-body text-center">
     <h4 class="card-title">

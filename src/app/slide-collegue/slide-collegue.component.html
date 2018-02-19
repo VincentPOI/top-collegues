@@ -1,0 +1,17 @@
+<div class="d-flex align-items-center" [style.height.px]="hauteurImage*3/8" style="overflow: hidden;">
+  <img #image (window:resize)="tailler(image)" (load)="tailler(image)" (error)="sourcer(image)" width="1400rem" src="{{collegue.urlImage}}"
+    alt="image">
+</div>
+
+<div class="carousel-caption">
+  <h1 class="custom-title1">{{collegue.score}}</h1>
+  <h2 class="custom-title2">  <a class="text-white" routerLink="/detail/{{collegue.pseudo}}">
+    {{collegue.pseudo}}</a>
+    <button type="button" (click)="supprimer()" class="btn btn-outline-warning" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </h2>
+
+  <button type="button" (click)="jaime()" class="btn btn-primary btn-lg">J'aime</button>
+  <button type="button" (click)="jedeteste()" class="btn btn-danger btn-lg">Je déteste</button>
+</div>
