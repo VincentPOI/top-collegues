@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import Collegue from '../shared/domain/collegue';
+import Collegue from '../../shared/domain/collegue';
 
 @Component({
   selector: 'app-formulaire-ajout',

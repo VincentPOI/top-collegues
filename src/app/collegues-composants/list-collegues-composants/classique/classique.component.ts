@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import CollegueService from '../shared/service/collegue.service'
+import CollegueService from '../../../shared/service/collegue.service'
 import AbstractBaseListCollegue from '../AbstractBaseListCollegues'
 @Component({
   selector: 'app-classique',

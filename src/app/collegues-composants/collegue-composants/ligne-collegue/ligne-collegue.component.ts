@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import AbstractBaseCollegue from '../AbstractBaseCollegue';
-import CollegueService from '../shared/service/collegue.service';
+import CollegueService from '../../../shared/service/collegue.service';
 
 @Component({
   selector: '[app-ligne-collegue]',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import CollegueService from '../shared/service/collegue.service';
+import CollegueService from '../../../shared/service/collegue.service';
 import AbstractBaseCollegue from '../AbstractBaseCollegue';
 
 @Component({

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { debounceTime } from 'rxjs/operator/debounceTime';
-import ScoreAction from '../shared/domain/score-action';
-import { Action } from '../shared/domain/score-action';
-import Collegue from '../shared/domain/collegue';
-import CollegueService from '../shared/service/collegue.service';
+import ScoreAction from '../../shared/domain/score-action';
+import { Action } from '../../shared/domain/score-action';
+import Collegue from '../../shared/domain/collegue';
+import CollegueService from '../../shared/service/collegue.service';
 
 @Component({
   selector: 'app-votre-dernier-avis',

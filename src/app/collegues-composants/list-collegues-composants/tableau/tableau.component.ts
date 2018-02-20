@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import AbstractBaseListCollegue from '../AbstractBaseListCollegues'
-import CollegueService from '../shared/service/collegue.service'
+import CollegueService from '../../../shared/service/collegue.service'
 
 @Component({
   selector: 'app-tableau',

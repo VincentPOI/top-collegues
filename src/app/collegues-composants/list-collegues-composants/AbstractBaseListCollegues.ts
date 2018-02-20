@@ -1,6 +1,6 @@
 import { OnInit } from '@angular/core';
-import Collegue from './shared/domain/collegue'
-import CollegueService from './shared/service/collegue.service'
+import Collegue from '../../shared/domain/collegue'
+import CollegueService from '../../shared/service/collegue.service'
 
 export default abstract class AbstractBaseListCollegues {
   collegues: Collegue[] = [];

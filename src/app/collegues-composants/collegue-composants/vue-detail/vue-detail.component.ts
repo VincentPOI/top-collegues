@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import CollegueService from '../shared/service/collegue.service';
+import CollegueService from '../../../shared/service/collegue.service';
 import AbstractBaseCollegue from '../AbstractBaseCollegue';
-import Collegue from '../shared/domain/collegue';
+import Collegue from '../../../shared/domain/collegue';
 import { Location } from '@angular/common';
 
 @Component({

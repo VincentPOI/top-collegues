@@ -4,21 +4,21 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { UnCollegueComponent } from './un-collegue/un-collegue.component';
+import { UnCollegueComponent } from './collegues-composants/collegue-composants/un-collegue/un-collegue.component';
 import CollegueService from './shared/service/collegue.service';
-import { ClassiqueComponent } from './classique/classique.component';
-import { FormulaireAjoutComponent } from './formulaire-ajout/formulaire-ajout.component';
-import { TableauComponent } from './tableau/tableau.component';
-import { CarrouselComponent } from './carrousel/carrousel.component';
-import { BanniereComponent } from './banniere/banniere.component';
-import { NotificationBarComponent } from './notification-bar/notification-bar.component';
-import { LigneCollegueComponent } from './ligne-collegue/ligne-collegue.component';
-import { ChoixAffichageComponent } from './choix-affichage/choix-affichage.component';
-import { SlideCollegueComponent } from './slide-collegue/slide-collegue.component';
-import { VueDetailComponent } from './vue-detail/vue-detail.component';
+import { ClassiqueComponent } from './collegues-composants/list-collegues-composants/classique/classique.component';
+import { FormulaireAjoutComponent } from './collegues-composants/formulaire-ajout/formulaire-ajout.component';
+import { TableauComponent } from './collegues-composants/list-collegues-composants/tableau/tableau.component';
+import { CarrouselComponent } from './collegues-composants/list-collegues-composants/carrousel/carrousel.component';
+import { BanniereComponent } from './outils-composants/banniere/banniere.component';
+import { NotificationBarComponent } from './outils-composants/notification-bar/notification-bar.component';
+import { LigneCollegueComponent } from './collegues-composants/collegue-composants/ligne-collegue/ligne-collegue.component';
+import { ChoixAffichageComponent } from './outils-composants/choix-affichage/choix-affichage.component';
+import { SlideCollegueComponent } from './collegues-composants/collegue-composants/slide-collegue/slide-collegue.component';
+import { VueDetailComponent } from './collegues-composants/collegue-composants/vue-detail/vue-detail.component';
 import { ScorePipe } from './shared/pipe/score.pipe';
 import { PseudoPipe } from './shared/pipe/pseudo.pipe';
-import { VotreDernierAvisComponent } from './votre-dernier-avis/votre-dernier-avis.component';
+import { VotreDernierAvisComponent } from './outils-composants/votre-dernier-avis/votre-dernier-avis.component';
 
 
 const appRoutes: Routes = [
