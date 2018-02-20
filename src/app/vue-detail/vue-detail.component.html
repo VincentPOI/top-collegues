@@ -24,11 +24,9 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </h4>
-        <p class="card-text lead">
-          <strong>{{collegue.score}}</strong>
-        </p>
-        <button type="button" (click)="jaime()" class="btn btn-outline-primary">J'aime</button>
-        <button type="button" (click)="jedeteste()" class="btn btn-outline-danger">Je déteste</button>
+        <h3 [innerHTML]="collegue.score | score"></h3>
+        <button type="button" (click)="jaime()" class="btn btn-primary btn-lg">J'aime</button>
+        <button type="button" (click)="jedeteste()" class="btn btn-danger btn-lg">Je déteste</button>
       </div>
     </div>
   </div>

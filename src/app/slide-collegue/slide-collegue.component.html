@@ -4,13 +4,14 @@
 </div>
 
 <div class="carousel-caption">
-  <h1 class="custom-title1">{{collegue.score}}</h1>
-  <h2 class="custom-title2">  <a class="text-white" routerLink="/detail/{{collegue.pseudo}}">
-    {{collegue.pseudo | uppercase }}</a>
+  <p class="custom-score" [innerHTML]="collegue.score | score"></p>
+  <p class="custom-pseudo">
+    <a class="text-white" routerLink="/detail/{{collegue.pseudo}}">
+      {{collegue.pseudo | uppercase }}</a>
     <button type="button" (click)="supprimer()" class="btn btn-outline-warning" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-  </h2>
+  </p>
 
   <button type="button" (click)="jaime()" class="btn btn-primary btn-lg">J'aime</button>
   <button type="button" (click)="jedeteste()" class="btn btn-danger btn-lg">Je déteste</button>
