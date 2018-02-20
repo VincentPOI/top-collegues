@@ -16,6 +16,7 @@ export class UnCollegueComponent extends AbstractBaseCollegue implements OnInit 
 
 
   ngOnInit() {
+    super.init();
   }
 
   tailler(img: HTMLImageElement){

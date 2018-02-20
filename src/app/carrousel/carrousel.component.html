@@ -10,25 +10,31 @@
 
 <div class="row">
   <div class="col-6">
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon3">Limite</span>
+    <div class="row">
+      <div class="col-12">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon3">Limite</span>
+          </div>
+          <input #limite (input)="nouvelleLimite(limite)" type="number" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        </div>
       </div>
-      <input #limite (input)="nouvelleLimite(limite)" type="number" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon3">Filtre par pseudo</span>
+          </div>
+          <input #pseudoInput (input)="nouvelleRecherche(pseudoInput)" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<div class="row">
   <div class="col-6">
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon3">Filtre par pseudo</span>
-      </div>
-      <input #pseudoInput (input)="nouvelleRecherche(pseudoInput)" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-    </div>
+    <app-votre-dernier-avis></app-votre-dernier-avis>
   </div>
 </div>
-
 
 <div class="row">
 
@@ -36,7 +42,7 @@
   <ngb-carousel class="mx-auto mb-3">
     <div *ngFor="let collegue of collegues  | pseudo:beginPseudo | slice:0:nbMax">
       <ng-template ngbSlide>
-        <app-slide-collegue [collegue]=collegue (suppr)=supprimer($event) (majScore)="trierCollegues()"></app-slide-collegue>
+        <app-slide-collegue [collegue]=collegue (suppr)="supprimer($event)"></app-slide-collegue>
       </ng-template>
     </div>
 

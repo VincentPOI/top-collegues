@@ -6,21 +6,29 @@ import CollegueService from './shared/service/collegue.service';
 
 export default abstract class AbstractBaseCollegue {
     @Input() collegue: Collegue;
-    @Output() majScore: EventEmitter<void> = new EventEmitter<void>()
     @Output() suppr: EventEmitter<Collegue> = new EventEmitter<Collegue>()
     cs: CollegueService
     constructor(cs: CollegueService) {
         this.cs = cs;
     }
 
+
+    init(){
+        this.cs.patchScoreObs.subscribe(collegueScoreAction => {
+            if(collegueScoreAction.collegue.pseudo==this.collegue.pseudo){
+                this.collegue.score = collegueScoreAction.collegue.score;
+            }
+        });
+    }
+
     supprimer() {
         this.suppr.emit(this.collegue);
     }
     jaime() {
-        this.cs.aimerUnCollegue(this.collegue).subscribe(collegue => { this.collegue.score = collegue.score; this.majScore.emit(); });
+        this.cs.aimerUnCollegue(this.collegue);
     }
     jedeteste() {
-        this.cs.detesterUnCollegue(this.collegue).subscribe(collegue => { this.collegue.score = collegue.score; this.majScore.emit(); });
+        this.cs.detesterUnCollegue(this.collegue);
     }
     sourcer(img: HTMLImageElement) {
         //TODO à changer pour mettre une ressource local, pas trop important pour l'instant

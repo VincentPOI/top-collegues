@@ -15,6 +15,7 @@ export class LigneCollegueComponent extends AbstractBaseCollegue implements OnIn
    }
 
   ngOnInit() {
+    super.init();
   }
 
   tailler(img: HTMLImageElement){

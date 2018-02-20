@@ -18,6 +18,7 @@ import { SlideCollegueComponent } from './slide-collegue/slide-collegue.componen
 import { VueDetailComponent } from './vue-detail/vue-detail.component';
 import { ScorePipe } from './shared/pipe/score.pipe';
 import { PseudoPipe } from './shared/pipe/pseudo.pipe';
+import { VotreDernierAvisComponent } from './votre-dernier-avis/votre-dernier-avis.component';
 
 
 const appRoutes: Routes = [
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     SlideCollegueComponent,
     VueDetailComponent,
     ScorePipe,
-    PseudoPipe
+    PseudoPipe,
+    VotreDernierAvisComponent
   ],
   imports: [
     BrowserModule,

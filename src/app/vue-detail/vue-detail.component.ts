@@ -24,7 +24,7 @@ export class VueDetailComponent extends AbstractBaseCollegue implements OnInit {
 
 
   ngOnInit() {
-    
+    super.init();
   }
 
   supprimer() {

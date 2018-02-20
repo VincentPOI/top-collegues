@@ -15,8 +15,10 @@ export default abstract class AbstractBaseListCollegues {
     this.cs.listerCollegue().subscribe((collegue) => {
       this.collegues.push(collegue);
       this.trierCollegues();
-    })
-
+    });
+    this.cs.patchScoreObs.subscribe(collegueScoreAction => {
+      this.trierCollegues();
+    });
   }
 
   nouvelleLimite(limite: HTMLInputElement){

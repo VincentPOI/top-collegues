@@ -16,6 +16,7 @@ export class SlideCollegueComponent extends AbstractBaseCollegue implements OnIn
    }
 
   ngOnInit() {
+    super.init();
   }
 
 

@@ -1,4 +1,5 @@
-export default class CollegueAction {
+
+export default class ScoreAction {
     constructor(public action:Action){}
 }
 
