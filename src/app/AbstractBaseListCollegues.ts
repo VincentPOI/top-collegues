@@ -12,8 +12,8 @@ export default abstract class AbstractBaseListCollegues {
   }
 
   init() {
-    this.cs.listerCollegue().then((collegues) => {
-      this.collegues = collegues;
+    this.cs.listerCollegue().subscribe((collegue) => {
+      this.collegues.push(collegue);
       this.trierCollegues();
     })
 
@@ -31,16 +31,11 @@ export default abstract class AbstractBaseListCollegues {
   }
 
   add(collegue: Collegue) {
-
-    this.cs.sauvegarder(collegue).then(collegue => {
-      this.collegues.push(collegue);
-      this.trierCollegues();
-
-    });
+    this.cs.sauvegarder(collegue);
   }
 
   supprimer(collegue: Collegue) {
-    this.cs.supprimerUnCollegue(collegue).then(o => {
+    this.cs.supprimerUnCollegue(collegue).subscribe(o => {
       this.collegues = this.collegues.filter(col => col.pseudo !== collegue.pseudo);
     });
   }

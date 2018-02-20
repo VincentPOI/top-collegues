@@ -18,7 +18,7 @@ export class VueDetailComponent extends AbstractBaseCollegue implements OnInit {
     this.collegue= new Collegue("", "", 0);
     this.route.params.subscribe(params => {
       this.cs.trouverCollegue(params['pseudo'])
-        .then(collegue => this.collegue = collegue);
+        .subscribe(collegue => this.collegue = collegue);
     });
   }
 

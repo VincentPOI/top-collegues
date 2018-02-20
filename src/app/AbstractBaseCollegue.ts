@@ -17,10 +17,10 @@ export default abstract class AbstractBaseCollegue {
         this.suppr.emit(this.collegue);
     }
     jaime() {
-        this.cs.aimerUnCollegue(this.collegue).then(collegue => { this.collegue.score = collegue.score; this.majScore.emit(); });
+        this.cs.aimerUnCollegue(this.collegue).subscribe(collegue => { this.collegue.score = collegue.score; this.majScore.emit(); });
     }
     jedeteste() {
-        this.cs.detesterUnCollegue(this.collegue).then(collegue => { this.collegue.score = collegue.score; this.majScore.emit(); });
+        this.cs.detesterUnCollegue(this.collegue).subscribe(collegue => { this.collegue.score = collegue.score; this.majScore.emit(); });
     }
     sourcer(img: HTMLImageElement) {
         //TODO à changer pour mettre une ressource local, pas trop important pour l'instant
