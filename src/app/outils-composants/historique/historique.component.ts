@@ -10,15 +10,22 @@ import Vote from '../../shared/domain/vote';
 export class HistoriqueComponent implements OnInit {
 
   private votes: Vote[] = [];
-
+  private corbeilleHistorique:number[];
   constructor(private hs: HistoriqueService) {
+    this.corbeilleHistorique = JSON.parse(localStorage.getItem("corbeilleHistorique"));
+    if(this.corbeilleHistorique==null || this.corbeilleHistorique == undefined){
+      this.corbeilleHistorique = [];
+    }
+    console.log("corbeille", this.corbeilleHistorique);
   }
 
   ngOnInit() {
     this.hs.historiqueObs.subscribe(
       vote => {
         console.log(vote.id, vote.collegue.pseudo);
-        this.votes.unshift(vote);
+        if(!this.corbeilleHistorique.some(id => id==vote.id)){
+          this.votes.unshift(vote);
+        }
       }
     );
   }
@@ -26,6 +33,8 @@ export class HistoriqueComponent implements OnInit {
   supprimer(vote: Vote) {
     console.log("HistoriqueComponent", "supprimer", vote.id);
     this.votes = this.votes.filter(v => v.id != vote.id);
+    this.corbeilleHistorique.push(vote.id);
+    localStorage.setItem("corbeilleHistorique", JSON.stringify(this.corbeilleHistorique));
   }
 
 }

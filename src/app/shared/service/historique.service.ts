@@ -7,7 +7,6 @@ import { HttpClient } from '@angular/common/http';
 export default class HistoriqueService {
 
   private historiqueSub: ReplaySubject<Vote> = new ReplaySubject(6);
-
   private maxId: number = 0;
 
   get historiqueObs(): Observable<Vote> {
