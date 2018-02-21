@@ -1,6 +1,6 @@
 <div class="card">
   <div class="d-flex flex-row-reverse">
-    <button type="button" (click)="supprimer()" class="btn btn-sm btn-outline-warning position-absolute mr-1 mt-1" aria-label="Close">
+    <button type="button" [disabled]="inactif" (click)="supprimer()" class="btn btn-sm btn-outline-warning position-absolute mr-1 mt-1" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -18,7 +18,7 @@
     </h4>
     <h3 [innerHTML]="collegue.score | score">
     </h3>
-    <button type="button" (click)="jaime()" class="btn btn-outline-primary">J'aime</button>
-    <button type="button" (click)="jedeteste()" class="btn btn-outline-danger">Je déteste</button>
+    <button type="button" [disabled]="inactif" (click)="jaime()" class="btn btn-outline-primary">J'aime</button>
+    <button type="button" [disabled]="inactif" (click)="jedeteste()" class="btn btn-outline-danger">Je déteste</button>
   </div>
 </div>

@@ -1,0 +1,10 @@
+<div class="card">
+  <h4 class="card-header">Historique</h4>
+  <div class="card-body">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let v of votes">
+        <app-ligne-historique [vote]="v" (suppr)="supprimer($event)"></app-ligne-historique>
+      </li>
+    </ul>
+  </div>
+</div>

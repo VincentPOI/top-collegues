@@ -21,7 +21,7 @@ export class VotreDernierAvisComponent implements OnInit {
 
   ngOnInit() {
     this.cs.patchScoreObs.subscribe(colScAct => {
-      this.nouvelAvis(colScAct.scAct, colScAct.collegue);
+      this.nouvelAvis(colScAct.avis, colScAct.collegue);
     });
     debounceTime.call(this.cs.patchScoreObs, 5000).subscribe(() => this.message = null);
   }

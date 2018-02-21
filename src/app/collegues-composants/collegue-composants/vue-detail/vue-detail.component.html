@@ -20,13 +20,13 @@
       <div class="card-body text-center">
         <h4 class="card-title">
           <strong>{{collegue.pseudo | uppercase}}</strong>
-          <button type="button" (click)="supprimer()" class="btn btn-sm btn-outline-warning" aria-label="Close">
+          <button type="button" [disabled]="inactif" (click)="supprimer()" class="btn btn-sm btn-outline-warning" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </h4>
         <h3 [innerHTML]="collegue.score | score"></h3>
-        <button type="button" (click)="jaime()" class="btn btn-primary btn-lg">J'aime</button>
-        <button type="button" (click)="jedeteste()" class="btn btn-danger btn-lg">Je déteste</button>
+        <button type="button" [disabled]="inactif" (click)="jaime()" class="btn btn-primary btn-lg">J'aime</button>
+        <button type="button" [disabled]="inactif" (click)="jedeteste()" class="btn btn-danger btn-lg">Je déteste</button>
       </div>
     </div>
   </div>

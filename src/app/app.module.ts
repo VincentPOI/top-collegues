@@ -19,6 +19,11 @@ import { VueDetailComponent } from './collegues-composants/collegue-composants/v
 import { ScorePipe } from './shared/pipe/score.pipe';
 import { PseudoPipe } from './shared/pipe/pseudo.pipe';
 import { VotreDernierAvisComponent } from './outils-composants/votre-dernier-avis/votre-dernier-avis.component';
+import { ConnectionBadgeComponent } from './outils-composants/connection-badge/connection-badge.component';
+import { HistoriqueComponent } from './outils-composants/historique/historique.component';
+import HistoriqueService from './shared/service/historique.service';
+import { LigneHistoriqueComponent } from './outils-composants/ligne-historique/ligne-historique.component';
+import { VoteHistoriquePipe } from './shared/pipe/vote-historique.pipe';
 
 
 const appRoutes: Routes = [
@@ -45,7 +50,11 @@ const appRoutes: Routes = [
     VueDetailComponent,
     ScorePipe,
     PseudoPipe,
-    VotreDernierAvisComponent
+    VotreDernierAvisComponent,
+    ConnectionBadgeComponent,
+    HistoriqueComponent,
+    LigneHistoriqueComponent,
+    VoteHistoriquePipe
   ],
   imports: [
     BrowserModule,
@@ -53,7 +62,7 @@ const appRoutes: Routes = [
     NgbModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [CollegueService],
+  providers: [CollegueService, HistoriqueService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

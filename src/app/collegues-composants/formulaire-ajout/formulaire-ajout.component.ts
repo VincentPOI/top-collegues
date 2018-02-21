@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import Collegue from '../../shared/domain/collegue';
+import CollegueService from '../../shared/service/collegue.service';
+import { EtatServeur } from '../../shared/domain/etat-serveur.enum';
 
 @Component({
   selector: 'app-formulaire-ajout',
@@ -8,12 +10,22 @@ import Collegue from '../../shared/domain/collegue';
 })
 export class FormulaireAjoutComponent implements OnInit {
 
-
+  inactif:boolean = true;
   @Output() ajout: EventEmitter<Collegue> = new EventEmitter<Collegue>()
 
-  constructor() { }
+  constructor(private cs:CollegueService) { }
 
   ngOnInit() {
+    this.cs.enLigneObs.subscribe(etat => {
+      switch (etat) {
+        case EtatServeur.EN_LIGNE:
+          this.inactif = false;
+          break;
+        case EtatServeur.HORS_LIGNE:
+          this.inactif = true;
+          break;
+      }
+    });
   }
 
 

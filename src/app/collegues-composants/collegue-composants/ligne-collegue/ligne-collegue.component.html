@@ -10,9 +10,9 @@
 <td>{{collegue.pseudo | uppercase }}</td>
 <td [innerHTML]="collegue.score | score"></td>
 <td class="align-middle">
-  <button type="button" (click)="jaime()" class="btn btn-outline-primary">J'aime</button>
-  <button type="button" (click)="jedeteste()" class="btn btn-outline-danger">Je déteste</button>
-  <button type="button" (click)="supprimer()" class="btn btn-outline-warning">
+  <button type="button" [disabled]="inactif" (click)="jaime()" class="btn btn-outline-primary">J'aime</button>
+  <button type="button" [disabled]="inactif" (click)="jedeteste()" class="btn btn-outline-danger">Je déteste</button>
+  <button type="button" [disabled]="inactif" (click)="supprimer()" class="btn btn-outline-warning">
 
     &times;
   </button>
