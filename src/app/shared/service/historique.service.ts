@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import Vote from '../domain/vote'
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs';
+import { Observable, ReplaySubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export default class HistoriqueService {
 
-  private historiqueSub: Subject<Vote> = new Subject();
+  private historiqueSub: ReplaySubject<Vote> = new ReplaySubject(6);
 
   private maxId: number = 0;
 

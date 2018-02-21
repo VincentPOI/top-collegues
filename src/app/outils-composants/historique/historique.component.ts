@@ -11,11 +11,6 @@ export class HistoriqueComponent implements OnInit {
 
   private votes: Vote[] = [];
 
-
-
-
-
-
   constructor(private hs: HistoriqueService) {
   }
 
