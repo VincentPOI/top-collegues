@@ -8,8 +8,10 @@
   <app-notification-bar class="col mt-2"></app-notification-bar>
 </div>
 
+<hr>
+
 <div class="row">
-  <div class="col-6">
+  <div class="col-8">
     <div class="row">
       <div class="col-12">
         <div class="input-group mb-3">
@@ -30,14 +32,24 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-6">
-    <app-votre-dernier-avis></app-votre-dernier-avis>
-  </div>
-</div>
 
-
-<div class="card-deck mt-3">
-  <app-un-collegue *ngFor="let col of collegues | pseudo:beginPseudo | slice:0:nbMax" [collegue]="col" (suppr)="supprimer($event)"
-    class=" col-lg-3 col-md-4 col-sm-6 col-12 mb-3 p-0"></app-un-collegue>
+    <div class="row">
+      <div class="col-12">
+        <div class="card-deck mt-3">
+          <app-un-collegue *ngFor="let col of collegues | pseudo:beginPseudo | slice:0:nbMax" [collegue]="col" (suppr)="supprimer($event)"
+            class="col-4 mb-3 p-0"></app-un-collegue>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="row">
+      <div class="col-12">
+        <app-votre-dernier-avis></app-votre-dernier-avis>
+      </div>
+      <div class="col-12">
+        <app-historique></app-historique>
+      </div>
+    </div>
+  </div>
 </div>

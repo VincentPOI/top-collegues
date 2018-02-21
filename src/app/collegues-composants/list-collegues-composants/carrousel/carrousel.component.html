@@ -9,8 +9,10 @@
 
 
 
+<hr>
+
 <div class="row">
-  <div class="col-6">
+  <div class="col-8">
     <div class="row">
       <div class="col-12">
         <div class="input-group mb-3">
@@ -31,27 +33,27 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-6">
-    <app-votre-dernier-avis></app-votre-dernier-avis>
-  </div>
-</div>
 
-<div class="row">
-
-
-  <ngb-carousel class="mx-auto mb-3">
-    <div *ngFor="let collegue of collegues  | pseudo:beginPseudo | slice:0:nbMax">
-      <ng-template ngbSlide>
-        <app-slide-collegue [collegue]=collegue (suppr)="supprimer($event)"></app-slide-collegue>
-      </ng-template>
+    <div class="row" >
+      <div class="col-12 mb-3" #divCarousel>
+        <ngb-carousel>
+          <div *ngFor="let collegue of collegues  | pseudo:beginPseudo | slice:0:nbMax">
+            <ng-template ngbSlide>
+              <app-slide-collegue [hauteur]="hauteur" [collegue]=collegue (suppr)="supprimer($event)"></app-slide-collegue>
+            </ng-template>
+          </div>
+        </ngb-carousel>
+      </div>
     </div>
-
-  </ngb-carousel>
-
-
+  </div>
+  <div class="col-4">
+    <div class="row">
+      <div class="col-12">
+        <app-votre-dernier-avis></app-votre-dernier-avis>
+      </div>
+      <div class="col-12">
+        <app-historique></app-historique>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
-<!-- *ngFor="let col of collegues"  [collegue]="col" (suppr)=supprimer($event) (majScore)="trierCollegues() -->

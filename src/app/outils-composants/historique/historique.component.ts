@@ -32,6 +32,8 @@ export class HistoriqueComponent implements OnInit {
   supprimer(vote: Vote) {
     this.votes = this.votes.filter(v => v.id != vote.id);
     this.corbeilleHistorique.push(vote.id);
+    this.corbeilleHistorique.sort();
+    this.corbeilleHistorique = this.corbeilleHistorique.reverse().slice(0,6);
     localStorage.setItem("corbeilleHistorique", JSON.stringify(this.corbeilleHistorique));
   }
 

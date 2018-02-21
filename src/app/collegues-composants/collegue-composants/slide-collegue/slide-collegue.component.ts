@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import AbstractBaseCollegue from '../AbstractBaseCollegue';
 import CollegueService from '../../../shared/service/collegue.service';
 
@@ -9,7 +9,7 @@ import CollegueService from '../../../shared/service/collegue.service';
   styleUrls: ['./slide-collegue.component.css']
 })
 export class SlideCollegueComponent extends AbstractBaseCollegue implements OnInit {
-  hauteurImage: number;
+  @Input() hauteur: number;
 
   constructor(public cs: CollegueService) {
     super(cs);
@@ -20,8 +20,7 @@ export class SlideCollegueComponent extends AbstractBaseCollegue implements OnIn
   }
 
 
-  tailler(img: HTMLImageElement){
-     this.hauteurImage = img.width;
-   }
+  
+
 
 }
