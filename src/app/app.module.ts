@@ -24,6 +24,7 @@ import { HistoriqueComponent } from './outils-composants/historique/historique.c
 import HistoriqueService from './shared/service/historique.service';
 import { LigneHistoriqueComponent } from './outils-composants/ligne-historique/ligne-historique.component';
 import { VoteHistoriquePipe } from './shared/pipe/vote-historique.pipe';
+import NotificationService from './shared/service/notification.service';
 
 
 const appRoutes: Routes = [
@@ -54,7 +55,7 @@ const appRoutes: Routes = [
     ConnectionBadgeComponent,
     HistoriqueComponent,
     LigneHistoriqueComponent,
-    VoteHistoriquePipe
+    VoteHistoriquePipe,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +63,7 @@ const appRoutes: Routes = [
     NgbModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [CollegueService, HistoriqueService],
+  providers: [CollegueService, HistoriqueService, NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

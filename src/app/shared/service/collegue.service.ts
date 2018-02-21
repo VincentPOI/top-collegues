@@ -7,6 +7,8 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/do'
 import { EtatServeur } from '../domain/etat-serveur.enum'
+import NotificationService from './notification.service';
+import Notification from '../domain/notification';
 @Injectable()
 export default class CollegueService {
 
@@ -23,7 +25,7 @@ export default class CollegueService {
   }
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private ns: NotificationService) {
     this.http.get<void>("http://localhost:3010/top-collegues/collegues/enLigne").subscribe(
       () => {
         this._enLigneSub.next(EtatServeur.EN_LIGNE);
@@ -64,9 +66,14 @@ export default class CollegueService {
       newCollegue,
       {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-      }).subscribe(collegue => {
-        this.collegueSaveSub.next(collegue);
-      });
+      }).subscribe(
+        collegue => {
+          this.collegueSaveSub.next(collegue);
+          this.ns.diffuserNotification(new Notification("success", `Le collegue ${newCollegue.pseudo} a bien été ajouté`));
+        },
+        error => {
+          this.ns.diffuserNotification(new Notification("danger", `Le collegue ${newCollegue.pseudo} n'a pas pu être ajouté`));
+        });
   }
 
   aimerUnCollegue(unCollegue: Collegue) {
@@ -76,9 +83,14 @@ export default class CollegueService {
       {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
       }
-    ).subscribe(collegue => {
-      this._patchScoreSub.next(new Vote(collegue, collegueAction));
-    });
+    ).subscribe(
+      collegue => {
+        this._patchScoreSub.next(new Vote(collegue, collegueAction));
+      },
+      error => {
+        this.ns.diffuserNotification(new Notification("danger", "Une erreur est survenue"));
+      }
+    );
   }
 
 
@@ -89,13 +101,25 @@ export default class CollegueService {
       {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
       }
-    ).subscribe(collegue => {
-      this._patchScoreSub.next(new Vote(collegue, collegueAction));
-    });
+    ).subscribe(
+      collegue => {
+        this._patchScoreSub.next(new Vote(collegue, collegueAction));
+      },
+      error => {
+        this.ns.diffuserNotification(new Notification("danger", "Une erreur est survenue"));
+      }
+    );
   }
 
   supprimerUnCollegue(collegue: Collegue): Observable<any> {
-    return this.http.delete(`http://localhost:3010/top-collegues/collegues/${collegue.pseudo}`);
+    return this.http.delete(`http://localhost:3010/top-collegues/collegues/${collegue.pseudo}`).do(
+      val => {
+        this.ns.diffuserNotification(new Notification("success", `Le collegue ${collegue.pseudo} a bien été supprimé`));
+      },
+      error => {
+        this.ns.diffuserNotification(new Notification("danger", `Le collegue ${collegue.pseudo} n'a pas pu être supprimé`));
+      }
+    );
   }
 
 }

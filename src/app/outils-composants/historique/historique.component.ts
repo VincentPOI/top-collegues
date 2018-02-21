@@ -22,7 +22,6 @@ export class HistoriqueComponent implements OnInit {
   ngOnInit() {
     this.hs.historiqueObs.subscribe(
       vote => {
-        console.log(vote.id, vote.collegue.pseudo);
         if(!this.corbeilleHistorique.some(id => id==vote.id)){
           this.votes.unshift(vote);
         }
@@ -31,7 +30,6 @@ export class HistoriqueComponent implements OnInit {
   }
 
   supprimer(vote: Vote) {
-    console.log("HistoriqueComponent", "supprimer", vote.id);
     this.votes = this.votes.filter(v => v.id != vote.id);
     this.corbeilleHistorique.push(vote.id);
     localStorage.setItem("corbeilleHistorique", JSON.stringify(this.corbeilleHistorique));
