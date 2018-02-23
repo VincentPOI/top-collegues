@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import AbstractBaseCollegue from '../AbstractBaseCollegue';
 import CollegueService from '../../../shared/service/collegue.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import CommentaireService from '../../../shared/service/commentaire.service';
 
 @Component({
   selector: '[app-ligne-collegue]',
@@ -10,8 +12,8 @@ import CollegueService from '../../../shared/service/collegue.service';
 export class LigneCollegueComponent extends AbstractBaseCollegue implements OnInit {
   hauteurImage: number;
 
-  constructor(cs: CollegueService) {
-    super(cs);
+  constructor(cs: CollegueService, ms: NgbModal, comS : CommentaireService) {
+    super(cs, ms, comS);
    }
 
   ngOnInit() {

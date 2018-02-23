@@ -16,7 +16,6 @@ export class HistoriqueComponent implements OnInit {
     if(this.corbeilleHistorique==null || this.corbeilleHistorique == undefined){
       this.corbeilleHistorique = [];
     }
-    console.log("corbeille", this.corbeilleHistorique);
   }
 
   ngOnInit() {

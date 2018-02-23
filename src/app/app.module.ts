@@ -22,9 +22,12 @@ import { VotreDernierAvisComponent } from './outils-composants/votre-dernier-avi
 import { ConnectionBadgeComponent } from './outils-composants/connection-badge/connection-badge.component';
 import { HistoriqueComponent } from './outils-composants/historique/historique.component';
 import HistoriqueService from './shared/service/historique.service';
+import CommentaireService from './shared/service/commentaire.service';
 import { LigneHistoriqueComponent } from './outils-composants/ligne-historique/ligne-historique.component';
 import { VoteHistoriquePipe } from './shared/pipe/vote-historique.pipe';
 import NotificationService from './shared/service/notification.service';
+import { CommentaireModalComponent } from './collegues-composants/commentaire-modal/commentaire-modal.component';
+import { FormsModule } from '@angular/forms';
 
 
 const appRoutes: Routes = [
@@ -56,14 +59,18 @@ const appRoutes: Routes = [
     HistoriqueComponent,
     LigneHistoriqueComponent,
     VoteHistoriquePipe,
+    CommentaireModalComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     NgbModule.forRoot(),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule,
   ],
-  providers: [CollegueService, HistoriqueService, NotificationService],
-  bootstrap: [AppComponent]
+  providers: [CommentaireService, CollegueService, HistoriqueService, NotificationService],
+  bootstrap: [AppComponent],
+  entryComponents: [CommentaireModalComponent]
+
 })
 export class AppModule { }

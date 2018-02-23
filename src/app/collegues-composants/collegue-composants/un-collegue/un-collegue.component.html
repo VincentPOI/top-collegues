@@ -1,6 +1,7 @@
 <div class="card">
   <div class="d-flex flex-row-reverse">
-    <button type="button" [disabled]="inactif" (click)="supprimer()" class="btn btn-sm btn-outline-warning position-absolute mr-1 mt-1" aria-label="Close">
+    <button type="button" [disabled]="inactif" (click)="supprimer()" class="btn btn-sm btn-outline-warning position-absolute mr-1 mt-1"
+      aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -18,7 +19,20 @@
     </h4>
     <h3 [innerHTML]="collegue.score | score">
     </h3>
-    <button type="button" [disabled]="inactif" (click)="jaime()" class="btn btn-outline-primary">J'aime</button>
-    <button type="button" [disabled]="inactif" (click)="jedeteste()" class="btn btn-outline-danger">Je déteste</button>
+    <div class="row">
+        <div class="col">
+            <button type="button" [disabled]="inactif" (click)="jaime()" class="btn btn-outline-primary">J'aime</button>
+        </div>
+        <div class="col">
+            <button type="button" [disabled]="inactif" (click)="jedeteste()" class="btn btn-outline-danger">Je déteste</button>
+          </div>
+    </div>
+    <div class="row">
+      <div class="col">
+          <button type="button" [disabled]="inactif" (click)="commentaireModal()" class="btn btn-outline-success">Rédiger un commentaire</button>
+
+
+      </div>
+    </div>
   </div>
 </div>
