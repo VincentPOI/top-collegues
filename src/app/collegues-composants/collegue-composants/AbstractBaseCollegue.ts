@@ -10,15 +10,18 @@ import CommentaireService from '../../shared/service/commentaire.service'
 
 export default abstract class AbstractBaseCollegue {
     @Input() collegue: Collegue;
+    commentaires: Commentaire[] = [];
     @Output() suppr: EventEmitter<Collegue> = new EventEmitter<Collegue>();
     cs: CollegueService;
     ms: NgbModal;
-    comS : CommentaireService;
+    comS: CommentaireService;
     inactif: boolean = true;
-    constructor(cs: CollegueService, ms: NgbModal,  comS : CommentaireService) {
+    constructor(cs: CollegueService, ms: NgbModal, comS: CommentaireService) {
         this.cs = cs;
         this.ms = ms;
         this.comS = comS;
+
+        
     }
 
     init() {
@@ -56,7 +59,7 @@ export default abstract class AbstractBaseCollegue {
         this.cs.detesterUnCollegue(this.collegue);
     }
     sourcer(img: HTMLImageElement) {
-        //TODO à changer pour mettre une ressource local, pas trop important pour l'instant
+        //TODO à changer pour mettre une ressource locale, pas trop important pour l'instant
         img.src = "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png";
     }
 }

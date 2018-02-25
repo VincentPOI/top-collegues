@@ -28,6 +28,7 @@ import { VoteHistoriquePipe } from './shared/pipe/vote-historique.pipe';
 import NotificationService from './shared/service/notification.service';
 import { CommentaireModalComponent } from './collegues-composants/commentaire-modal/commentaire-modal.component';
 import { FormsModule } from '@angular/forms';
+import { ListeCommentairesComponent } from './collegues-composants/liste-commentaires/liste-commentaires.component';
 
 
 const appRoutes: Routes = [
@@ -60,6 +61,7 @@ const appRoutes: Routes = [
     LigneHistoriqueComponent,
     VoteHistoriquePipe,
     CommentaireModalComponent,
+    ListeCommentairesComponent,
   ],
   imports: [
     BrowserModule,

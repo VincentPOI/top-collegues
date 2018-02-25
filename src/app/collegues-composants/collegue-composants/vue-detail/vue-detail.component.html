@@ -2,15 +2,17 @@
   <app-banniere class=col-12></app-banniere>
 </div>
 
+
+
 <div class="row">
   <div class="col">
-    <button type="button" class="btn btn-outline-primary" (click)="retourListe()">Retour</button>
+      <button type="button" class="btn btn-outline-primary mb-4 mt-4" (click)="retourListe()">Retour</button>
   </div>
+  <app-notification-bar class="col mt-2"></app-notification-bar>
 </div>
 
-<div class="row d-flex justify-content-center">
-  <div class="col-8">
-
+<div class="row">
+  <div class="col-8 mb-3">
     <div class="card">
       <div class="d-flex align-items-center" [style.height.px]="hauteurImage*9/16" style="overflow: hidden;">
         <img #image (window:resize)="tailler(image)" (load)="tailler(image)" (error)="sourcer(image)" class="card-img-top" src="{{collegue.urlImage}}"
@@ -27,6 +29,16 @@
         <h3 [innerHTML]="collegue.score | score"></h3>
         <button type="button" [disabled]="inactif" (click)="jaime()" class="btn btn-primary btn-lg">J'aime</button>
         <button type="button" [disabled]="inactif" (click)="jedeteste()" class="btn btn-danger btn-lg">Je déteste</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-4 mb-3">
+    <div class="row">
+      <div class="col-12">
+        <app-votre-dernier-avis></app-votre-dernier-avis>
+      </div>
+      <div class="col-12">
+        <app-liste-commentaires [commentaires]="commentaires" (ajout)=commentaireModal()></app-liste-commentaires>
       </div>
     </div>
   </div>
