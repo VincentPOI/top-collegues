@@ -9,7 +9,7 @@
     <div class="form-group">
       <label for="commentaire">Que pensez vous de {{commentaire.collegue.pseudo}} ?</label>
       <textarea [(ngModel)]="commentaire.message" name="message" #messageAvis="ngModel" required minlength="10" class="form-control"
-        id="commentaire" rows="3" [class.is-invalid]="commentaire.message.length > 15"></textarea>
+        id="commentaire" rows="3" [class.is-invalid]="commentaire.message.length > 255"></textarea>
       <small class="form-text text-muted">
         Veuillez saisir votre avis avec un minimum de 10 caractères et un maximum de 255 caractères
       </small>
@@ -21,6 +21,6 @@
   <div class="modal-footer">
 
     <button type="button" class="btn btn-outline-secondary" (click)="activeModal.close('Close click')">Annuler</button>
-    <button type="submit" [disabled]="messageAvis.invalid || commentaire.message.length > 15" class="btn btn-outline-primary" (click)="commenter()">Enregistrer</button>
+    <button type="submit" [disabled]="messageAvis.invalid || commentaire.message.length > 255" class="btn btn-outline-primary" (click)="commenter()">Enregistrer</button>
   </div>
 </form>
