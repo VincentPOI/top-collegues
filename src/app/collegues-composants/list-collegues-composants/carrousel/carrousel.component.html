@@ -1,59 +1,32 @@
-<div class="row bg-light">
-  <app-banniere class=col-12></app-banniere>
-  <app-formulaire-ajout class=col-12 (ajout)=add($event)></app-formulaire-ajout>
-</div>
 <div class="row">
-  <app-choix-affichage class="mb-4 mt-4"></app-choix-affichage>
-  <app-notification-bar class="col mt-2"></app-notification-bar>
-</div>
-
-
-
-<hr>
-
-<div class="row">
-  <div class="col-8">
-    <div class="row">
-      <div class="col-12">
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon3">Limite</span>
-          </div>
-          <input #limite (input)="nouvelleLimite(limite)" type="number" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-        </div>
+  <div class="col-12">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon3">Limite</span>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon3">Filtre par pseudo</span>
-          </div>
-          <input #pseudoInput (input)="nouvelleRecherche(pseudoInput)" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-        </div>
-      </div>
-    </div>
-
-    <div class="row" >
-      <div class="col-12 mb-3" #divCarousel>
-        <ngb-carousel>
-          <div *ngFor="let collegue of collegues  | pseudo:beginPseudo | slice:0:nbMax">
-            <ng-template ngbSlide>
-              <app-slide-collegue [hauteur]="hauteur" [collegue]=collegue (suppr)="supprimer($event)"></app-slide-collegue>
-            </ng-template>
-          </div>
-        </ngb-carousel>
-      </div>
+      <input #limite (input)="nouvelleLimite(limite)" type="number" class="form-control" id="basic-url" aria-describedby="basic-addon3">
     </div>
   </div>
-  <div class="col-4">
-    <div class="row">
-      <div class="col-12">
-        <app-votre-dernier-avis></app-votre-dernier-avis>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon3">Filtre par pseudo</span>
       </div>
-      <div class="col-12">
-        <app-historique></app-historique>
-      </div>
+      <input #pseudoInput (input)="nouvelleRecherche(pseudoInput)" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
     </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 mb-3" #divCarousel>
+    <ngb-carousel>
+      <div *ngFor="let collegue of collegues  | pseudo:beginPseudo | slice:0:nbMax">
+        <ng-template ngbSlide>
+          <app-slide-collegue [hauteur]="hauteur" [collegue]=collegue (suppr)="supprimer($event)"></app-slide-collegue>
+        </ng-template>
+      </div>
+    </ngb-carousel>
   </div>
 </div>

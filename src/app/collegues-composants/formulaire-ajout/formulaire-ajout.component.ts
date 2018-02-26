@@ -11,9 +11,12 @@ import { EtatServeur } from '../../shared/domain/etat-serveur.enum';
 export class FormulaireAjoutComponent implements OnInit {
 
   inactif:boolean = true;
+  collegue : Collegue = new Collegue("","",0);
   @Output() ajout: EventEmitter<Collegue> = new EventEmitter<Collegue>()
 
-  constructor(private cs:CollegueService) { }
+  constructor(private cs:CollegueService) {
+
+   }
 
   ngOnInit() {
     this.cs.enLigneObs.subscribe(etat => {
@@ -30,11 +33,9 @@ export class FormulaireAjoutComponent implements OnInit {
 
 
 
-  add(pseudo: HTMLInputElement, imageUrl: HTMLInputElement) {
-    let nouveauCollegue = new Collegue(pseudo.value, imageUrl.value, 0);
-    //TODO remettre en place des notifications
-    this.ajout.emit(nouveauCollegue);
-    pseudo.value = ""; imageUrl.value = "";
+  add() {
+    this.cs.sauvegarder(this.collegue);
+    this.collegue = new Collegue("","",0);
   }
 
 }

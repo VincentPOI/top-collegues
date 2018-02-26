@@ -12,7 +12,7 @@ export class PseudoPipe implements PipeTransform {
       return collegues;
     }
     return collegues.filter(col=>{
-      return col.pseudo.toUpperCase().startsWith(beginPseudo.toUpperCase());
+      return col.pseudo.toUpperCase().includes(beginPseudo.toUpperCase());
     })
   }
 

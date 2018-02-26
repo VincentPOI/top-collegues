@@ -16,5 +16,4 @@ export class ClassiqueComponent extends AbstractBaseListCollegue implements OnIn
   ngOnInit() {
     super.init()
   }
-
 }

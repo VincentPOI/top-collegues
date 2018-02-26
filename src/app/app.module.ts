@@ -29,6 +29,7 @@ import NotificationService from './shared/service/notification.service';
 import { CommentaireModalComponent } from './collegues-composants/commentaire-modal/commentaire-modal.component';
 import { FormsModule } from '@angular/forms';
 import { ListeCommentairesComponent } from './collegues-composants/liste-commentaires/liste-commentaires.component';
+import { AvisAppModalComponent } from './outils-composants/avis-app-modal/avis-app-modal.component';
 
 
 const appRoutes: Routes = [
@@ -62,6 +63,7 @@ const appRoutes: Routes = [
     VoteHistoriquePipe,
     CommentaireModalComponent,
     ListeCommentairesComponent,
+    AvisAppModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,7 @@ const appRoutes: Routes = [
   ],
   providers: [CommentaireService, CollegueService, HistoriqueService, NotificationService],
   bootstrap: [AppComponent],
-  entryComponents: [CommentaireModalComponent]
+  entryComponents: [CommentaireModalComponent, AvisAppModalComponent]
 
 })
 export class AppModule { }

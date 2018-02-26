@@ -22,6 +22,8 @@ export default abstract class AbstractBaseListCollegues {
     });
   }
 
+
+
   nouvelleLimite(limite: HTMLInputElement) {
     this.nbMax = limite.valueAsNumber;
     if (!Number.isInteger(this.nbMax)) {
@@ -33,9 +35,6 @@ export default abstract class AbstractBaseListCollegues {
     this.beginPseudo = pseudoInput.value
   }
 
-  add(collegue: Collegue) {
-    this.cs.sauvegarder(collegue);
-  }
 
   supprimer(collegue: Collegue) {
     this.cs.supprimerUnCollegue(collegue).subscribe(o => {

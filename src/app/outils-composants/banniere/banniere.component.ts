@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AvisAppModalComponent } from '../../outils-composants/avis-app-modal/avis-app-modal.component';
+
 
 @Component({
   selector: 'app-banniere',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BanniereComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ms: NgbModal) { }
 
   ngOnInit() {
+  }
+
+
+  avis() {
+    const modalRef = this.ms.open(AvisAppModalComponent);
   }
 
 }
